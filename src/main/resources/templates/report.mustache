@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Report Page</title>
+    </head>
+    <body>
+        <div>
+            <form method="post" action="/add">
+                <div>
+                    <input type="text" name="name" placeholder="Enter report name"/>
+                </div>
+                <div>
+                    <input type="text" name="author" placeholder="Enter author name"/>
+                </div>
+                <div>
+                    <textarea name="description" rows="10" cols="10" wrap="hard" placeholder="Enter description of report"></textarea>
+                </div>
+                <div>
+                    <button type="submit">Add Report</button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <form method="get" action="/">
+                    <input type="text" name="search" placeholder="Search by name or author"/>
+                    <button type="submit">Search</button>
+            </form>
+        </div>
+        <div>
+            Report List:
+        </div>
+        <div>
+            <table border="1" cellspacing="0" cellpadding="10">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Report</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#reports}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{name}}</td>
+                        <td>{{author}}</td>
+                        <td>{{description}}</td>
+                        <td>{{date}}</td>
+                        <td>
+                            <form method="post" action="/delete/{{id}}">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="get" action="/edit/{{id}}">
+                                <button type="submit">Edit</button>
+                            </form>
+                        </td>
+                    </tr>
+                {{/reports}}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

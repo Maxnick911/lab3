@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Report Edit</title>
+    </head>
+    <body>
+        <form method="post" action="/add">
+            <div>
+                <input type="hidden" name="id" value="{{report.id}}"/>
+            </div>
+            <div>
+                <input type="text" name="name" value="{{report.name}}"/>
+            </div>
+            <div>
+                <input type="text" name="author" value="{{report.author}}"/>
+            </div>
+            <div>
+                <textarea name="description" rows="10" cols="10" wrap="hard">{{report.description}}</textarea>
+            </div>
+            <div>
+                <button type="submit">Save changes</button>
+            </div>
+        </form>
+    </body>
+</html>
